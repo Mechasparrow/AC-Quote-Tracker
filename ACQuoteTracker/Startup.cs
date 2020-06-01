@@ -31,7 +31,8 @@ namespace ACQuoteTracker
             
             services.AddDbContext<QuoteDbContext>(options => { options.UseSqlite(Configuration.GetConnectionString("MvcQuoteContext")); });
 
-            services.AddSingleton<IQuoteData>(new InMemoryQuoteStore());
+            services.AddSingleton<IVillagerData>(new InMemoryVillagerStore());
+            services.AddSingleton<IQuoteData>(ctx=> new InMemoryQuoteStore(ctx.GetService<IVillagerData>()));
         }    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

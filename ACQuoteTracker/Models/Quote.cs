@@ -6,11 +6,11 @@ namespace ACQuoteTracker.Models
     {
         public int ID { get; set; }
         
-        public string VillagerName { get; set; }
-        
+        public int VillagerId { get; set; }
+        public Villager Villager { get; set; }
+
         public string QuoteText { get; set; }
         
-        [UrlAttribute]
-        public string ImageUrl { get; set; }
+        
     }
 }

@@ -1,0 +1,22 @@
+@model IEnumerable<Villager>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Villagers List</h2>
+
+@foreach(var villager in Model)
+    {
+        <div class="card">
+            <div class="card-img-top text-center">
+                <img width="200" height="200" src="@villager.ImageUrl"/>
+            </div>
+            <div class="card-body">
+                <p>ID: @villager.ID</p>
+                <p>@villager.name</p>
+            </div>
+        </div>
+        <br/>
+    }

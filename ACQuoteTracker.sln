@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACQuoteTracker", "ACQuoteTracker\ACQuoteTracker.csproj", "{9C5FEE84-65F3-438B-83DC-FF7DDF5281F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillagerScraper", "VillagerScraper\VillagerScraper.csproj", "{1F757B63-8A41-4905-AFDD-9706626BAD62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Villager", "Villager\Villager.csproj", "{1F757B63-8A41-4905-AFDD-9706626BAD62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
