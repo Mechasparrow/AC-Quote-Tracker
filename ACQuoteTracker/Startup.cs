@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace ACQuoteTracker
 {
@@ -29,10 +30,19 @@ namespace ACQuoteTracker
         {
             services.AddControllersWithViews();
             
-            services.AddDbContext<QuoteDbContext>(options => { options.UseSqlite(Configuration.GetConnectionString("MvcQuoteContext")); });
-
+            
+            services.AddDbContext<QuoteTrackerDbContext>(options => { options.UseSqlite(Configuration.GetConnectionString("MvcQuoteContext")); });
+            
+            /*
             services.AddSingleton<IVillagerData>(new InMemoryVillagerStore());
             services.AddSingleton<IQuoteData>(ctx=> new InMemoryQuoteStore(ctx.GetService<IVillagerData>()));
+            */
+
+            services.AddScoped<IVillagerData>((ctx) =>
+                new DatabaseVillagerStore(ctx.GetRequiredService<QuoteTrackerDbContext>()));
+            
+            services.AddScoped<IQuoteData>((ctx) =>
+                new DatabaseQuoteStore(ctx.GetRequiredService<QuoteTrackerDbContext>()));
         }    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

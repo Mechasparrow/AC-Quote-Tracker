@@ -1,0 +1,23 @@
+﻿body {
+  background:#f1f1f1 url(https://vignette.wikia.nocookie.net/animalcrossing/images/c/c4/Grass_spring.png/revision/latest) top left repeat;
+}
+
+main{
+  background-color:white;
+  min-height: 80vh;
+  padding: 8px;
+}
+
+.card-img-top
+{
+  text-align: center;
+  background-color: white;
+}
+
+.card{
+  background-color: oldlace;
+}
+
+footer{
+  background-color: white;
+}

@@ -1,23 +1,30 @@
 @model IEnumerable<ACQuoteTracker.Models.Quote>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "View Quotes";
     Layout = "_Layout";
 }
 
-<h2>Hello there</h2>
+<h2>Quotes List</h2>
+
+<a class = "btn btn-primary" asp-controller="Quotes" asp-action="Create">Add a new Quote</a>
+
 <div>
     @foreach (var quote in Model)
     {
+        var villager = ((List<Villager>) ViewBag.Villagers).FirstOrDefault(v => v.VillagerId == quote.VillagerId); 
         <div class="card" style="width:30rem">
             <div class="card-img-top">
-                <img src="@quote.Villager.ImageUrl"/>
+                
+                <img src="@villager.ImageUrl"/>
             </div>
             <div class="card-header">
-                <h2 class="card-title">@quote.Villager.name </h2>
+                <h2 class="card-title">@villager.name </h2>
             </div>
             <div class="card-body">
                 They said @quote.QuoteText
+                
+                <a asp-action="Delete" asp-controller="Quotes" asp-route-quoteId="@quote.QuoteId">Delete</a>
             </div>
         </div>
         

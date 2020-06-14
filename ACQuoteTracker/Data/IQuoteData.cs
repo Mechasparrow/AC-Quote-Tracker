@@ -9,6 +9,9 @@ namespace ACQuoteTracker.Data
         public IEnumerable<Quote> GetQuotes();
         public Quote FindById(int ID);
         public Quote AddQuote(Quote newQuote);
-        
+
+        public Quote DeleteQuote(Quote quoteToDelete);
+
+        public void CommitChanges();
     }
 }

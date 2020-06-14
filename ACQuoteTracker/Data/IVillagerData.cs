@@ -8,5 +8,7 @@ namespace ACQuoteTracker.Data
         public IEnumerable<Villager> GetVillagers();
         public Villager FindById(int ID);
         public Villager AddVillager(Villager newVillager);
+
+        public void CommitChanges();
     }
 }

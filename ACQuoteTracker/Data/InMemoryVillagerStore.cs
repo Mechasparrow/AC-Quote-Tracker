@@ -12,7 +12,7 @@ namespace ACQuoteTracker.Data
     {
         private List<Villager> villagers;
 
-        static List<Villager> ReadInVillagers()
+        public static List<Villager> ReadInVillagers()
         {
             List<Villager> villagers = new List<Villager>();
 
@@ -33,7 +33,7 @@ namespace ACQuoteTracker.Data
 
                     Villager v = new Villager()
                     {
-                        ID = ID,
+                        VillagerId = ID,
                         ImageUrl = imgUrl,
                         name = name
                     };
@@ -63,15 +63,25 @@ namespace ACQuoteTracker.Data
 
         public Villager FindById(int ID)
         {
-            Villager foundVillager = villagers.FirstOrDefault(v => v.ID == ID);
+            Villager foundVillager = villagers.FirstOrDefault(v => v.VillagerId == ID);
             return foundVillager;
         }
 
         public Villager AddVillager(Villager newVillager)
         {
-            newVillager.ID = villagers.Max(v => v.ID) + 1;
+            newVillager.VillagerId = 1;
+
+            if (villagers.Count > 0)
+            {
+                newVillager.VillagerId = villagers.Max(v => v.VillagerId) + 1;
+            }
             villagers.Add(newVillager);
             return newVillager;
+        }
+
+        public void CommitChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }

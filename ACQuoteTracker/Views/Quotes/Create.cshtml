@@ -1,0 +1,25 @@
+@model Quote
+
+@{
+    ViewBag.Title = "Create Quote";
+    Layout = "_Layout";
+}
+
+<h1>Creating a new Quote</h1>
+
+<form asp-controller="Quotes" asp-action="Create" method="post">
+    
+    <div class="form-group">
+        <label asp-for="VillagerId">Villager Name</label>
+        <select asp-for="VillagerId" asp-items="@(new SelectList(ViewBag.Villagers, "VillagerId","name"))" class="form-control"></select>
+        
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="QuoteText">Quote Text</label>
+        <textarea class = "form-control" asp-for="QuoteText"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Submit</button>
+    
+</form>
